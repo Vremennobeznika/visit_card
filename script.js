@@ -1,27 +1,25 @@
-// Цвета и значки синхронизированы с ENJIGIRLING, ключ localStorage — theme.
-(() => {
-  'use strict';
-  const root = document.documentElement;
+// Переключатель темы. Выбор запоминается в localStorage.
+// На кнопке — эмодзи темы, на которую она переключит: 🌙 в светлой теме, ☀️ в тёмной.
+document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('themeToggle');
   if (!toggle) return;
-  const meta = document.querySelector('meta[name="theme-color"]');
-  const key = 'theme';
 
-  function apply(isDark) {
-    root.classList.toggle('theme-dark', isDark);
-    root.style.colorScheme = isDark ? 'dark' : 'light';
-    toggle.textContent = isDark ? '☀' : '☾';
-    toggle.setAttribute('aria-label', isDark ? 'Включить светлую тему' : 'Включить тёмную тему');
-    toggle.setAttribute('title', isDark ? 'Светлая тема' : 'Тёмная тема');
-    toggle.setAttribute('aria-pressed', String(isDark));
-    if (meta) meta.setAttribute('content', isDark ? '#101010' : '#ffffff');
+  const saved = {
+    get: () => { try { return localStorage.getItem('theme'); } catch { return null; } },
+    set: (value) => { try { localStorage.setItem('theme', value); } catch { /* ничего страшного */ } }
+  };
+
+  function applyTheme(isDark) {
+    document.documentElement.classList.toggle('theme-dark', isDark);
+    document.body.classList.toggle('theme-dark', isDark);
+    toggle.textContent = isDark ? '☀️' : '🌙';
   }
 
-  apply(root.classList.contains('theme-dark'));
+  applyTheme(saved.get() === 'dark');
+
   toggle.addEventListener('click', () => {
-    const next = !root.classList.contains('theme-dark');
-    apply(next);
-    try { localStorage.setItem(key, next ? 'dark' : 'light'); }
-    catch (_) { /* В приватном режиме сайт продолжает работать. */ }
+    const isDark = !document.body.classList.contains('theme-dark');
+    applyTheme(isDark);
+    saved.set(isDark ? 'dark' : 'light');
   });
-})();
+});
