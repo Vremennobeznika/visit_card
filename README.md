@@ -1,5 +1,12 @@
 # Рабочая визитка
 
+## Скриншоты
+
+![Визитка — экран компьютера](docs/screenshots/desktop.webp)
+
+![Визитка — смартфон](docs/screenshots/mobile.webp)
+
+
 Статический сайт: HTML, CSS и JavaScript без сборки и зависимостей.
 
 ## Файлы
