@@ -22,5 +22,5 @@ HTML · CSS · JavaScript · localStorage · JSON · PWA / Service Worker · Git
 
 ## Контакты
 
-- Telegram: [@evosif](https://t.me/evosif)
+- Telegram: [https://t.me/evosif](https://t.me/evosif)
 - Почта: [eva.tselikina@ya.ru](mailto:eva.tselikina@ya.ru)
