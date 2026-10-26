@@ -20,3 +20,7 @@ HTML · CSS · JavaScript · localStorage · JSON · PWA / Service Worker · Git
 
 В репозиториях есть описания запуска, скриншоты и ограничения. Проверки и сведения о тестах приведены в README соответствующих проектов.
 
+## Контакты
+
+- Telegram: [@evosif](https://t.me/evosif)
+- Почта: [eva.tselikina@ya.ru](mailto:eva.tselikina@ya.ru)
